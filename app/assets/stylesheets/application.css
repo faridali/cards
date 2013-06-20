@@ -1,0 +1,63 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+.alert {
+	margin-top: 10px;
+}
+
+/* micropost jQuery countdown */
+
+.countdown {
+  display: inline;
+  padding-left: 210px;
+  color: rgb(167, 167, 167);
+}
+
+/* slides */
+
+.slide-unit {
+padding: 40px;
+font-style: h2;
+font-size: 18px;
+font-weight: 300;
+line-height: 30px;
+color: inherit;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 0px;
+text-align:center;
+width: 400px;
+height: 200px;
+border: 1px solid;
+border-color: rgb(202, 202, 202);
+}
+
+div.slide-unit 
+{
+	min-height: 10em;
+    display: table-cell;
+    vertical-align: middle
+}
+
+.slide-box {
+	padding-bottom: 30px;
+}
+
+.slide-menu{
+	padding-left: 413px;
+	margin-top: -30px;
+	padding-bottom: 40px;
+}
+}

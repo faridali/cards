@@ -1,0 +1,16 @@
+<div class="slide-box">
+	<div class="slide-unit">
+		<div id="slide_<%= slide.id %>">
+		 <p>
+		  <%= slide.content %>
+		</p>
+		</div>
+	</div>
+</div>
+
+<div class="slide-menu">
+  <%= link_to 'Edit', edit_status_slide_path(@status,slide) if current_user.statuses.include?(@status) %> 
+  <%= link_to 'Delete', [slide.status, slide],
+               :confirm => 'Are you sure?',
+               :method => :delete if current_user.statuses.include?(@status) %>
+</div>

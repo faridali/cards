@@ -1,0 +1,23 @@
+<p>
+  <b>By:</b>
+  <%= @status.user.full_name %>
+</p>
+<div class="slide-box">
+	<div class="slide-unit">
+		<%= @status.content %>
+	</div>
+</div>
+
+<div class="slide-menu">
+<%= link_to 'Edit', edit_status_path(@status) if current_user.statuses.include?(@status) %>
+<%= link_to "Delete", status_path(@status), method: :delete, data: { confirm: "Are you sure you want to delete this status?"} if current_user.statuses.include?(@status) %>
+</div>
+
+<div class="container">
+	<%= render @status.slides %>
+</div>
+
+<a id="form"></a>
+<p>
+<%= render "slides/form" if current_user.statuses.include?(@status) %>
+</p>

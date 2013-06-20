@@ -1,0 +1,12 @@
+<h4>Edit slide:</h4>
+
+<%= form_for([@status,@slide],:url=>status_slide_path, :method => :put) do |f| %>
+   <div class="field" >
+    <%= f.text_area :content, maxlength: 200 %>
+  </div>
+    <%= f.submit "Update", class: "btn btn-info" %>
+    <%= link_to "Cancel","javascript:history.back()", class: "btn btn-info" %>
+    <span class="countdown"></span>
+  </div>
+<% end %>
+
