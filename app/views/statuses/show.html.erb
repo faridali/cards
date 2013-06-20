@@ -21,3 +21,5 @@
 <p>
 <%= render "slides/form" if current_user.statuses.include?(@status) %>
 </p>
+
+<%= link_to 'Publish', status_publish_path(@status), class: "btn btn-info" %>

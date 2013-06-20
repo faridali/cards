@@ -60,4 +60,7 @@ div.slide-unit
 	margin-top: -30px;
 	padding-bottom: 40px;
 }
+
+.glyphw{
+    background-image: url(/assets/glyphicons-halflings.png);
 }
