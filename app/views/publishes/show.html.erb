@@ -1,0 +1,21 @@
+<small>
+  Created by <%= @status.user.full_name %>
+  <%= time_ago_in_words(@status.created_at) %> ago
+</small><br><br>
+<div class="slide-box">
+	<div class="slide-unit">
+		<%= @status.content %>
+	</div>
+</div>
+
+<% @status.slides.each do |slide| %>
+	<div class="slide-box">
+		<div class="slide-unit">
+			<div id="slide_<%= slide.id %>">
+			 <p>
+			  <%= slide.content %>
+			</p>
+			</div>
+		</div>
+	</div>
+<% end %>
