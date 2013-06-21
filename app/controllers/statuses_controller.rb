@@ -16,12 +16,17 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   # GET /statuses/1.json
   def show
     @status = Status.find(params[:id])
-
     respond_to do |format|
+        if current_user
       format.html # show.html.erb
       format.json { render json: @status }
-    end
+      else
+        format.html { redirect_to status_publish_path(@status) }
+        format.json { render json: @status.errors, status: :unprocessable_entity }
   end
+end
+end
+
 
   def publish
     @status = Status.find(params[:id])

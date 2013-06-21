@@ -8,5 +8,5 @@ class Status < ActiveRecord::Base
   validates :user_id, presence: true
 
   has_many :slides, :dependent => :destroy
-  has_many :publishes, :dependent => :destroy
+  has_one :publish, :dependent => :destroy
 end

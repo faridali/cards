@@ -7,7 +7,7 @@
 <% if @statuses %>
 	<% @statuses.each do |status| %>
 		<div class="slide-unit">
-			<%= link_to status.content, status %>
+			<%= link_to status.content, status_path(status) %>
 			<hr />
 			<small><%= time_ago_in_words(status.created_at) %> ago</small>
 		</div>
