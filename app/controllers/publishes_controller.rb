@@ -2,9 +2,13 @@ class PublishesController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :update]
 
     def index
-    @user = User.find_by_profile_name(params[:id])
-    @Publishes = Publish.all
+    @status = Status.find(params[:status_id])
+    @publish = @status.publishes(params[:id])
+    respond_to do |format|
+    format.html  # show.html.erb
+    format.json  { render :json => @status }
    end
+ end
 
    def show
     @status = Status.find(params[:status_id])
@@ -18,13 +22,9 @@ end
     
     def create
       @status = Status.find(params[:status_id])
-      @publish = @status.publishes.create(params[:status])
-       respond_to do |format|
-        format.html
-        flash[:notice] = "You have successfully published your presentation."
-        format.json { render json: @status, publish: :created, location: @status }
+      @publish = @status.publishes.create(params[:publish])
+       redirect_to status_publishes_path(@status)
     end
-  end
 
    def update
     @user = User.find_by_profile_name(params[:id])

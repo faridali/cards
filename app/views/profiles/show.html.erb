@@ -4,13 +4,15 @@
 	<h3><%= @user.full_name %></h3>
 </div>
 
-<% if @statuses %>
-	<% @statuses.each do |status| %>
-		<div class="slide-unit">
-			<%= link_to status.content, status %>
-			<hr />
-			<small><%= time_ago_in_words(status.created_at) %> ago</small>
-		</div>
-		<br>
+	<% if @statuses %>
+		<% @statuses.each do |status| %>
+		<% if status.publishes.length != 0 %>
+			<div class="slide-unit">
+				<%= link_to status.content, status %>
+				<hr />
+				<small><%= time_ago_in_words(status.created_at) %> ago</small>
+			</div>
+			<br>
+			<% end %>
+		<% end %>
 	<% end %>
-<% end %>
