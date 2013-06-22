@@ -27,16 +27,6 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
 end
 end
 
-
-  def publish
-    @status = Status.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @status }
-    end
-  end
-
   # GET /statuses/new
   # GET /statuses/new.json
   def new

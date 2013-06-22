@@ -3,35 +3,23 @@ class PublishesController < ApplicationController
 
     def index
     @status = Status.find(params[:status_id])
-    @publish = @status.publishes(params[:id])
-    respond_to do |format|
-    format.html  # show.html.erb
-    format.json  { render :json => @status }
-   end
+    @publish = @status.publishes.first(params[:id])
+    render "show"
  end
 
    def show
     @status = Status.find(params[:status_id])
-    @publish = @status.publishes(params[:id])
-    respond_to do |format|
-    format.html  # show.html.erb
-    format.json  { render :json => @status }
   end
-end
-
     
     def create
       @status = Status.find(params[:status_id])
       @publish = @status.publishes.create(params[:publish])
-       redirect_to status_publishes_path(@status)
-    end
+      @publish.save
+      redirect_to status_publishes_path
+  end
 
    def update
-    @user = User.find_by_profile_name(params[:id])
     @status = Status.find(params[:status_id])
-    @publish = @status.publish(params[:id])
-    @publish.update_attributes(params[:slide])
-    redirect_to status_publish_path
   end
 
    def destroy

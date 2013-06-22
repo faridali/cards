@@ -10,7 +10,7 @@
 			<div class="slide-unit">
 				<%= link_to status.content, status %>
 				<hr />
-				<small><%= time_ago_in_words(status.created_at) %> ago</small>
+				<small><%= time_ago_in_words(status.publishes.first.created_at) %> ago</small>
 			</div>
 			<br>
 			<% end %>

@@ -23,7 +23,7 @@
 </p>
 
 <%= form_for([@status, @status.publishes.build]) do |f| %>
-    <%= f.submit "Publish", class: "btn btn-info" %>
+    <%= f.submit "Publish", class: "btn btn-info" if @status.publishes.length ==0 %>
  <% end %>
 
-# <%= link_to 'Publish', status_publish_path(@status), class: "btn btn-info" %>
+<%= link_to 'View Published', status_publishes_path(@status), class: "btn btn-info" if @status.publishes.length != 0 %>

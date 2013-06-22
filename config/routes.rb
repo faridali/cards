@@ -10,11 +10,11 @@ Treebook::Application.routes.draw do
   end
 
  resources :statuses do
-    resources :slides
+    resources :publishes
   end
 
  resources :statuses do
-    resources :publishes
+    resources :slides
   end
 
   resources :statuses
