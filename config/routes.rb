@@ -13,9 +13,9 @@ Treebook::Application.routes.draw do
     resources :slides
   end
 
-resources :statuses do
-  resources :publishes
-end
+ resources :statuses do
+    resources :publishes
+  end
 
   resources :statuses
   get 'feed', to: 'statuses#index', as: :feed

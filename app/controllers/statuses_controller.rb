@@ -21,7 +21,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
       format.html # show.html.erb
       format.json { render json: @status }
       else
-        format.html { redirect_to status_publish_path(@status) }
+        format.html { redirect_to status_path(@status) }
         format.json { render json: @status.errors, status: :unprocessable_entity }
   end
 end

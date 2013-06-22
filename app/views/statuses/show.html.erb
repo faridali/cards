@@ -22,7 +22,7 @@
 <%= render "slides/form" if current_user.statuses.include?(@status) %>
 </p>
 
-<%= form_for([@status, @status.build_publish]) do |f| %>
+<%= form_for([@status, @status.publishes.build]) do |f| %>
     <%= f.submit "Publish", class: "btn btn-info" %>
  <% end %>
 

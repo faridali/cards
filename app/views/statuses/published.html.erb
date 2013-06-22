@@ -1,0 +1,16 @@
+<div class="page-header">
+	<img class="img-circle" <%= image_tag @user.gravatar_url %>
+				</img>
+	<h3><%= @user.full_name %></h3>
+</div>
+
+<% if @statuses %>
+	<% @statuses.each do |status| %>
+		<div class="slide-unit">
+			<%= link_to status.content, status %>
+			<hr />
+			<small><%= time_ago_in_words(status.created_at) %> ago</small>
+		</div>
+		<br>
+	<% end %>
+<% end %>

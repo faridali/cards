@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621022732) do
+ActiveRecord::Schema.define(:version => 20130621163421) do
 
   create_table "publishes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "status_id"
+    t.integer  "user_id"
   end
 
   add_index "publishes", ["status_id"], :name => "index_publishes_on_status_id"
+  add_index "publishes", ["user_id"], :name => "index_publishes_on_user_id"
 
   create_table "slides", :force => true do |t|
     t.text     "content"

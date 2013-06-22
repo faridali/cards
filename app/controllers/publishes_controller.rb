@@ -1,38 +1,43 @@
 class PublishesController < ApplicationController
-  before_filter :authenticate_user!, only: [:create]
+  before_filter :authenticate_user!, only: [:create, :update]
 
     def index
-    @status = Status.find(params[:status_id])  
-    @publishes = Publish.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @publishes }
-      end
+    @user = User.find_by_profile_name(params[:id])
+    @Publishes = Publish.all
    end
 
    def show
     @status = Status.find(params[:status_id])
-    @publish = @status.publish(params[:id])
-
+    @publish = @status.publishes(params[:id])
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @status }
+    format.html  # show.html.erb
+    format.json  { render :json => @status }
+  end
+end
+
+    
+    def create
+      @status = Status.find(params[:status_id])
+      @publish = @status.publishes.create(params[:status])
+       respond_to do |format|
+        format.html
+        flash[:notice] = "You have successfully published your presentation."
+        format.json { render json: @status, publish: :created, location: @status }
     end
   end
-    
 
-    def create
+   def update
+    @user = User.find_by_profile_name(params[:id])
     @status = Status.find(params[:status_id])
-    @publish = @status.build_publish(params[:publish])
-       respond_to do |format|
-      if @publish.save
-        format.html { redirect_to (status_publishes_path) }
-        format.json { render json: @status, publish: :created, location: @status }
-      else
-        format.html { redirect_to @status, alert: 'Sorry! Please try again later.' }
-        format.json { render json: @publish.errors, publish: :unprocessable_entity }
-      end
-    end
-   end
+    @publish = @status.publish(params[:id])
+    @publish.update_attributes(params[:slide])
+    redirect_to status_publish_path
+  end
+
+   def destroy
+    @status = Status.find(params[:status_id])
+    @publish = @status.publish.find(params[:id])
+    @publish.destroy
+    redirect_to status_path(@status)
+  end
  end
