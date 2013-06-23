@@ -13,9 +13,13 @@ end
     
     def create
       @status = Status.find(params[:status_id])
+    if @status.publishes.length == 0
       @publish = @status.publishes.create(params[:publish])
       render "show"
+    else
+      render "show" 
   end
+end
 
    def update
     @status = Status.find(params[:status_id])
