@@ -22,8 +22,12 @@
 <%= render "slides/form" if current_user.statuses.include?(@status) %>
 </p>
 
+<% if @status.publishes.length == 0 %>
 <%= form_for([@status, @status.publishes.build]) do |f| %>
-    <%= f.submit "Publish", class: "btn btn-info" if @status.publishes.length ==0 %>
- <% end %>
+   		<%= f.submit "Publish", class: "btn btn-info" %>
+	<% end %>
+<% else %>
+	<%= link_to 'View', status_publishes_path(@status), class: "btn btn-info" %>
+<% end %>
 
-<%= link_to 'View Published', status_publishes_path(@status), class: "btn btn-info" if @status.publishes.length != 0 %>
+

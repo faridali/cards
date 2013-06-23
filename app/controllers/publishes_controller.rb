@@ -9,13 +9,12 @@ class PublishesController < ApplicationController
 
    def show
     @status = Status.find(params[:status_id])
-  end
+end
     
     def create
       @status = Status.find(params[:status_id])
       @publish = @status.publishes.create(params[:publish])
-      @publish.save
-      redirect_to status_publishes_path
+      render "show"
   end
 
    def update
