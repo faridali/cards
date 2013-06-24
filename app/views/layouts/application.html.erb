@@ -15,6 +15,11 @@
 					<li><%= link_to "All Statuses", feed_path %></li>
 				</ul>
 				<ul class="nav pull-right">
+
+					<li><h><%= link_to new_status_path, class: "btn btn-success" do%>
+				<i class="icon-plus glyphw-white"></i> New Presentation
+				<% end %>
+					</h></li>
 					<% if user_signed_in? %>
 						<li><%= link_to current_user.full_name, "/" +current_user.profile_name %></li>
 						<li><%= link_to "Account", edit_user_registration_path %></li>

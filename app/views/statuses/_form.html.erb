@@ -1,22 +1,8 @@
-<%= simple_form_for(@status, html: {class: "form-horizontal"}) do |f| %>
-  <% if @status.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
-
-      <ul>
-      <% @status.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  
-  <%= f.input :content %>
-
-
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+<%= simple_form_for(@status, html: {class: "form"}) do |f| %>
+<h5>Title Slide</h5>
+  <div class="field" >
+<%= f.text_area :content, maxlength: 200, placeholder: "Title slide text..." %>
   </div>
+  <%= f.submit "Create Slide", class: "btn btn-info" %>
+    <span class="countdown"></span>
 <% end %>

@@ -8,7 +8,7 @@
 		<% @statuses.each do |status| %>
 		<% if status.publishes.length != 0 %>
 			<div class="slide-unit">
-				<%= link_to status.content, status %>
+				<%= link_to status.content, status_publishes_path(status) %>
 				<hr />
 				<small><%= time_ago_in_words(status.publishes.first.created_at) %> ago</small>
 			</div>
@@ -16,3 +16,4 @@
 			<% end %>
 		<% end %>
 	<% end %>
+

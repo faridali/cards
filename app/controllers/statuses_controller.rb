@@ -51,10 +51,10 @@ end
 
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Status was successfully created.' }
+        format.html { redirect_to @status, notice: 'Presentation was successfully created. Create slides below.' }
         format.json { render json: @status, status: :created, location: @status }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new", alert: 'Contents of title slide must be between 1 - 200 characters long.' }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end
@@ -69,7 +69,7 @@ end
   end
     respond_to do |format|
       if @status.update_attributes(params[:status])
-        format.html { redirect_to @status, notice: 'Status was successfully updated.' }
+        format.html { redirect_to @status }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

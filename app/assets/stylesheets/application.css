@@ -61,6 +61,10 @@ div.slide-unit
 	padding-bottom: 40px;
 }
 
+.glyphw-white{
+    background-image: url(/assets/glyphicons-halflings-white.png);
+}
+
 .glyphw{
     background-image: url(/assets/glyphicons-halflings.png);
 }
