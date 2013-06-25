@@ -68,3 +68,7 @@ div.slide-unit
 .glyphw{
     background-image: url(/assets/glyphicons-halflings.png);
 }
+
+.edit-slide {
+  height: 300px;
+}

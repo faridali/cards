@@ -1,6 +1,6 @@
 <div class="slide-box">
 	<div class="slide-unit">
-		<%= @status.content %>
+		<%= best_in_place @status, :content, :html_attrs => { :maxlength => 200 } %>
 	</div>
 </div>
 
