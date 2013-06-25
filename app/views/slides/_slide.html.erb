@@ -2,7 +2,7 @@
 	<div class="slide-unit">
 		<div id="slide_<%= slide.id %>">
 		 <p>
-		  <%= slide.content %>
+		  <%= best_in_place slide, :content, :path => [@status, slide] %>
 		</p>
 		</div>
 	</div>

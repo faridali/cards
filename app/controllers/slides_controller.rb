@@ -42,11 +42,23 @@ before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy]
     @slide = @status.slides.find(params[:id])
   end
 
+  def show
+  @status = Status.find(params[:status_id])
+  redirect_to status_path
+  end
+
 def update
     @status = Status.find(params[:status_id])
     @slide = @status.slides.find(params[:id])
     @slide.update_attributes(params[:slide])
-    redirect_to (status_path(@status, :anchor => "slide_#{(@slide.id)}"))
-  end
-
+    respond_to do |format|
+        format.html
+        format.json { respond_with_bip(@slide) }
+      end
+    else
+     respond_to do |format|
+       format.html { render :action => "edit" }
+       format.json { respond_with_bip(@slide) }
+     end
+    end
 end

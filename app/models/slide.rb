@@ -1,5 +1,5 @@
 class Slide < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :status_id, :id
   belongs_to :status
 
   validates :content, presence: true,
