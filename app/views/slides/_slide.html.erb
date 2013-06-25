@@ -2,14 +2,14 @@
 	<div class="slide-unit">
 		<div id="slide_<%= slide.id %>">
 		 <p>
-		  <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 } %>
+		  <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 }, :activator => "#activator-#{slide.id}" %>
 		</p>
 		</div>
 	</div>
 </div>
 
 <div class="slide-menu">
-  <%= link_to 'Edit ', edit_status_slide_path(@status,slide) if current_user.statuses.include?(@status) %>
+  <%= link_to "Edit", "#", id: "activator-#{slide.id}" if current_user.statuses.include?(@status) %>
   <%= link_to 'Delete', [slide.status, slide],
                :confirm => 'Are you sure?',
                :method => :delete if current_user.statuses.include?(@status) %>
