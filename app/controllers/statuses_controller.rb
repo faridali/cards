@@ -51,7 +51,7 @@ end
 
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Presentation was successfully created. Create slides below.' }
+        format.html { redirect_to @status, notice: 'Presentation was successfully created. Add slides below.' }
         format.json { render json: @status, status: :created, location: @status }
       else
         format.html { render action: "new", alert: 'Contents of title slide must be between 1 - 200 characters long.' }

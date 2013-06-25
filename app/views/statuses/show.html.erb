@@ -1,9 +1,3 @@
-<% if @status.publishes.length != 0 %>
-<small>
-  Created by <%= @status.user.full_name %>
-  <%= time_ago_in_words(@status.publishes.first.created_at) %> ago
-</small><br><br>
-<% end %>
 <div class="slide-box">
 	<div class="slide-unit">
 		<%= @status.content %>
