@@ -2,7 +2,7 @@
 	<div class="slide-unit">
 		<div id="slide_<%= slide.id %>">
 		 <p>
-		  <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 }, :activator => "#activator-#{slide.id}" %>
+		  <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 }, :activator => "#activator-#{slide.id}", :type => :textarea, :ok_button => 'Done' %>
 		</p>
 		</div>
 	</div>
