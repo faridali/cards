@@ -1,10 +1,11 @@
 <div class="slide-box">
 	<div class="slide-unit">
-		<div id="slide_<%= slide.id %>">
+		<li id="slide_<%= slide.id %>">
+			<span class="handle">[drag]</span>
 		 <p>
-		  <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 }, :activator => "#activator-#{slide.id}", :type => :textarea, :ok_button => 'Done' %>
+		  <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 }, :activator => "#activator-#{slide.id}", :type => :textarea, :ok_button => 'Save' %>
 		</p>
-		</div>
+		</li>
 	</div>
 </div>
 

@@ -11,10 +11,18 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.ui.all 
 //= require jquery_ujs
 //= require jquery.purr
 //= require best_in_place
 //= require_tree .
+
+$(document).ajaxSend(function(event, request, settings) {
+  if (typeof(AUTH_TOKEN) == "undefined") return;
+  // settings.data is a serialized string like "foo=bar&baz=boink" (or null)
+  settings.data = settings.data || "";
+  settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+});
 
 $(function(){
     $('textarea').keypress(function(e) {
@@ -43,3 +51,4 @@ jQuery(document).ready(function($) {
     $('#slide_content').change(updateCountdown);
     $('#slide_content').keyup(updateCountdown);
 });
+

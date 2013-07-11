@@ -7,6 +7,7 @@ class Status < ActiveRecord::Base
 
   validates :user_id, presence: true
 
-  has_many :slides, :dependent => :destroy
+  has_many :slides, :dependent => :destroy, :order => "position"
   has_many :publishes, :dependent => :destroy, :order => "created_at DESC"
+
 end

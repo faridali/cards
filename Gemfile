@@ -38,6 +38,10 @@ gem 'jquery-rails'
 
 gem 'best_in_place'
 
+gem 'acts_as_list'
+
+gem 'jquery-ui-rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

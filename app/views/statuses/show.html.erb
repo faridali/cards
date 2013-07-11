@@ -40,7 +40,14 @@ jQuery(document).ready(function($) {
 </div>
 
 <div class="container">
-	<%= render @status.slides %>
+	<ul id="slides" data-update-url="<%= sort_slides_url %>">
+<% @status.slides.each do |slide| %>
+  <%= content_tag_for :li, slide do %>
+  <%= slide.content %>
+    <span class="handle">[drag]</span>
+  <% end %>
+<% end %>
+</ul>
 </div>
 
 <a id="form"></a>

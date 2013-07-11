@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621163421) do
+ActiveRecord::Schema.define(:version => 20130708153413) do
 
   create_table "publishes", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130621163421) do
     t.integer  "status_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   add_index "slides", ["status_id"], :name => "index_slides_on_status_id"

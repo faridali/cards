@@ -15,15 +15,19 @@ Treebook::Application.routes.draw do
 
  resources :statuses do
     resources :slides
-  end
+end
+
+ resources :slides do
+      collection { post :sort }
+end
+
+  resources :slides, :status => { :sort => :post }
 
   resources :statuses
   get 'feed', to: 'statuses#index', as: :feed
   root to: 'statuses#index'
 
   get '/:id', to: 'profiles#show', as: :user_profile
-
-
 
 
   # The priority is based upon order of creation:
