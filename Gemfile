@@ -42,6 +42,10 @@ gem 'acts_as_list'
 
 gem 'jquery-ui-rails'
 
+gem 'carrierwave'
+
+gem 'mini_magick'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

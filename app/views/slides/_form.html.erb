@@ -1,7 +1,10 @@
-<%= form_for([@status, @status.slides.build]) do |f| %>
+<%= form_for([@status, @status.slides.build], :html => {:multipart => true}) do |f| %>
   <div class="slide-field" >
     <%= f.text_area :content, maxlength: 200, placeholder: "New slide text..." %>
   </div>
+  <p>
+<%= f.file_field :image %>
+  </p>
 <%= f.submit "Create Slide", class: "btn btn-info" %>
     <span class="countdown"></span>
  <% end %>
