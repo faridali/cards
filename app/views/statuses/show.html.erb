@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 <span class="handle">|||||</span>
 <div class="slide-box">
   <div class="slide-unit">
-       <%= image_tag slide.image_url(:thumb).to_s if slide.image? %><br><br>
+       <%= image_tag slide.image_url(:thumb).to_s if slide.image? %>
           <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 }, :activator => "#activator-#{slide.id}", :type => :textarea, :ok_button => 'Done', :nil => '&nbsp;' %>
     </div>
 </div>

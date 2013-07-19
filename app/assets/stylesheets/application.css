@@ -79,4 +79,5 @@ div.slide-unit
 
 ul#slides {
   list-style-type: none;
+  margin-left: 0;
 }
