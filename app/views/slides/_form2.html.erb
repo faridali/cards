@@ -1,6 +1,10 @@
-<h4>Edit slide:</h4>
+<strong>Edit slide:</strong>
 
 <%= form_for([@status,@slide],:url=>status_slide_path, :method => :put) do |f| %>
+<%= image_tag @slide.image_url(:thumb).to_s if @slide.image? %><br><br>
+<%= f.file_field :image if !@slide.image? %>
+<%= f.check_box :remove_image if @slide.image? %>
+<%= f.label :remove_image, "remove image" if @slide.image? %><br><br>
    <div class="field" >
     <%= f.text_area :content, maxlength: 200 %>
   </div>
